@@ -1,0 +1,19 @@
+<h2>Login</h2>
+{% if errors %}
+<ul>
+  {% for error in errors %}
+  <li style="color: red;">{{error}}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+<form action="{{action}}" method="POST" accept-charset="utf-8">
+  <p>
+    <label for="username">Username</label><input type="text" name="username" value="" id="username" />
+    <br />
+    <label for="password">Password</label><input type="password" name="password" value="" id="password" />
+  </p>
+  {% if destination %}
+  <input type="hidden" name="destination" value="{{destination}}" />
+  {% endif %}
+  <p><input type="submit" value="Submit"></p>
+</form>
