@@ -10,7 +10,7 @@ class ZendAuthPluginConfiguration
   const UNAUTHORIZED_HEADER_CODE = 401;
   
   
-  public function postConfig()
+  public function init()
   {
     self::registerZend();
   }
