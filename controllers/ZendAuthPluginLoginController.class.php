@@ -21,7 +21,7 @@ class ZendAuthPluginLoginController extends sgBaseController
   public function POST()
   {
     $data = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    $adapter = new Zend_Auth_Adapter_Digest(sgConfiguration::getPath('settings.ZendAuthPlugin.passwd_path'),
+    $adapter = new Zend_Auth_Adapter_Digest(sgConfiguration::get('settings.ZendAuthPlugin.passwd_path'),
                                             '*',
                                             $data['username'],
                                             $data['password']);

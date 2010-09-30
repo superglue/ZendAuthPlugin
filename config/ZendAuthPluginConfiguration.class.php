@@ -28,7 +28,7 @@ class ZendAuthPluginConfiguration
   {
     if (!Zend_Auth::getInstance()->hasIdentity())
     {
-      header('Location: ' . sgToolkit::url(sgConfiguration::getPath('routing.ZendAuthPlugin_login.path') . '?destination=' . urlencode($route['path'])));
+      header('Location: ' . sgToolkit::url(sgConfiguration::get('routing.ZendAuthPlugin_login.path') . '?destination=' . urlencode($route['path'])));
     }
   }
   
@@ -41,7 +41,7 @@ class ZendAuthPluginConfiguration
     
     if (!class_exists('Zend_Loader_Autoloader'))
     {
-      $path = sgConfiguration::getPath('settings.ZendAuthPlugin.zend_lib_path');
+      $path = sgConfiguration::get('settings.ZendAuthPlugin.zend_lib_path');
       set_include_path($path . PATH_SEPARATOR . get_include_path());
       require_once $path . '/Zend/Loader/Autoloader.php';
     }
@@ -52,7 +52,7 @@ class ZendAuthPluginConfiguration
   
   public static function install()
   {
-    sgToolkit::touch(sgConfiguration::getPath('settings.ZendAuthPlugin.passwd_path'));
+    sgToolkit::touch(sgConfiguration::get('settings.ZendAuthPlugin.passwd_path'));
     
     $message = <<<END
     You must place the Zend Framework in your project. ZendAuthPlugin will 
